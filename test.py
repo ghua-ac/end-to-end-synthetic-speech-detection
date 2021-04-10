@@ -1,7 +1,7 @@
 import torch
 from torch.utils.data.dataloader import DataLoader
 from data import PrepASV15Dataset, PrepASV19Dataset
-import models_ablation
+import models
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 
@@ -105,29 +105,27 @@ def cal_roc_eer(probs, show_plot=True):
 if __name__ == '__main__':
 
     test_device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-    # protocol_file_path = 'F:/ASVSpoof2019/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.dev.trl.txt'
-    # data_path = 'F:/ASVSpoof2019/LA/data/dev_6/'
+    protocol_file_path = 'F:/ASVSpoof2019/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.dev.trl.txt'
+    data_path = 'F:/ASVSpoof2019/LA/data/dev_6/'
 
    # 'F:/ASVSpoof2019/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.train.trn.txt'
    # 'F:/ASVSpoof2019/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.dev.trl.txt'
    # 'F:/ASVSpoof2019/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.eval.trl.txt'
 
-    protocol_file_path = 'F:/ASVspoof2015/CM_protocol/cm_develop.ndx.txt'
-    # cm_train.trn
-    # cm_develop.ndx
-    # cm_evaluation.ndx
-    data_path = 'F:/ASVspoof2015/data/dev_6/'
+    # protocol_file_path = 'F:/ASVspoof2015/CM_protocol/cm_develop.ndx.txt'
+    # # cm_train.trn
+    # # cm_develop.ndx
+    # # cm_evaluation.ndx
+    # data_path = 'F:/ASVspoof2015/data/dev_6/'
 
-    # Net = models.SSDNet1D()
-    Net = models_ablation.DilatedNetWider()
-    # Net = models.SSDNet2D()
+    Net = models.SSDNet1D()
     num_total_learnable_params = sum(i.numel() for i in Net.parameters() if i.requires_grad)
     print('Number of learnable params: {}.'.format(num_total_learnable_params))
 
-    check_point = torch.load('./trained_models/time_frame_55_ASVspoof2019_LA_Loss_0.0008dEER_0.91%_eEER_3.75++++++Wider.pth')
+    check_point = torch.load('./trained_models/***.pth')
     Net.load_state_dict(check_point['model_state_dict'])
 
-    accuracy, probabilities = asv_cal_accuracies(protocol_file_path, data_path, Net, test_device, data_type='time_frame', dataset=15)
+    accuracy, probabilities = asv_cal_accuracies(protocol_file_path, data_path, Net, test_device, data_type='time_frame', dataset=19)
     print(accuracy * 100)
 
     eer = cal_roc_eer(probabilities)

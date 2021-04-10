@@ -3,7 +3,7 @@ import torch.nn.functional as F
 from torch.utils.data.dataloader import DataLoader
 import torch.optim as optim
 from data import PrepASV19Dataset, PrepASV15Dataset
-import models_ablation
+import models
 from test import asv_cal_accuracies, cal_roc_eer
 import os
 import sys
@@ -11,8 +11,6 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-
-# from torch.utils.tensorboard import SummaryWriter
 
 
 if __name__ == '__main__':
@@ -74,10 +72,10 @@ if __name__ == '__main__':
     train_loader = DataLoader(train_set, batch_size=64, shuffle=True, num_workers=4)
 
     if data_type == 'CQT':
-        Net = models_ablation.DilatedNet()  # 2D-Res-TSSDNet
+        Net = models.SSDNet2D()  # 2D-Res-TSSDNet
     else:
-        # Net = models.SSDNet1D()   # Res-TSSDNet
-        Net = models_ablation.DilatedNet()  # Inc-TSSDNet
+        Net = models.SSDNet1D()   # Res-TSSDNet
+        # Net = models.DilatedNet()  # Inc-TSSDNet
     Net = Net.to(device)
 
     num_total_learnable_params = sum(i.numel() for i in Net.parameters() if i.requires_grad)
@@ -86,11 +84,6 @@ if __name__ == '__main__':
     optimizer = optim.Adam(Net.parameters(), lr=0.001)
     scheduler = optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.95)
     loss_type = 'WCE'  # {'WCE', 'mixup'}
-
-    # check_point = torch.load('trained_models/dilated_time_frame_80_100.0_98.8528_94.6488_Loss_0.0005.pth')
-    # Net.load_state_dict(check_point['model_state_dict'])
-    # optimizer.load_state_dict(check_point['optimizer_state_dict'])
-    # scheduler.load_state_dict(check_point['scheduler_state_dict'])
 
     # TODO: Training
     print('Training data: {}, Date type: {}. Training started...'.format(train_data_path, data_type))
@@ -119,12 +112,8 @@ if __name__ == '__main__':
             samples, labels, _ = batch
             samples = samples.to(device)
             labels = labels.to(device)
-
-            # writer = SummaryWriter()
-            # writer.add_graph(Net, samples)
-            # writer.close()
-
             preds = Net(samples)
+
             optimizer.zero_grad()
 
             if loss_type == 'mixup':
@@ -146,18 +135,6 @@ if __name__ == '__main__':
             total_loss += loss.item()
 
         loss_per_epoch[epoch] = total_loss/counter
-
-        # validation
-        # train_accuracy, t_probs = asv_cal_accuracies(train_protocol_file_path, train_data_path, Net, device, data_type=data_type, dataset=dataset)
-        # t_eer = cal_roc_eer(t_probs, show_plot=False)
-
-        # dev_accuracy, d_probs = asv_cal_accuracies(dev_protocol_file_path, dev_data_path, Net, device, data_type=data_type, dataset=dataset)
-        # d_eer = cal_roc_eer(d_probs, show_plot=False)
-        # if d_eer <= best_d_eer[0]:
-        #     best_d_eer[0] = d_eer
-        #     best_d_eer[1] = epoch
-        # eval_accuracy, e_probs = asv_cal_accuracies(eval_protocol_file_path, eval_data_path, Net, device, data_type=data_type, dataset=dataset)
-        # e_eer = cal_roc_eer(e_probs, show_plot=False)
 
         dev_accuracy, d_probs = asv_cal_accuracies(dev_protocol_file_path, dev_data_path, Net, device, data_type=data_type, dataset=dataset)
         d_eer = cal_roc_eer(d_probs, show_plot=False)
@@ -194,4 +171,4 @@ if __name__ == '__main__':
     plt.plot(torch.log10(loss_per_epoch))
     plt.show()
 
-    print('End of Program')
+    print('End of Program.')
