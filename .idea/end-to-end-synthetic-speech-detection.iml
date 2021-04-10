@@ -6,9 +6,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
-    <option name="requirementsPath" value="D:\repos\end-to-end-synthetic-speech-detection\requirements.txt" />
-    <option name="versionSpecifier" value="Strong equality (==x.y.z)" />
-    <option name="keepMatchingSpecifier" value="false" />
+    <option name="versionSpecifier" value="Greater or equal (&gt;=x.y.z)" />
+    <option name="removeUnused" value="true" />
   </component>
   <component name="PyDocumentationSettings">
     <option name="format" value="PLAIN" />
