@@ -69,7 +69,7 @@ if __name__ == '__main__':
     else:
         train_set = PrepASV19Dataset(train_protocol_file_path, train_data_path, data_type=data_type)
     weights = train_set.get_weights().to(device)  # weight used for WCE
-    train_loader = DataLoader(train_set, batch_size=64, shuffle=True, num_workers=4)
+    train_loader = DataLoader(train_set, batch_size=32, shuffle=True, num_workers=4)
 
     if data_type == 'CQT':
         Net = models.SSDNet2D()  # 2D-Res-TSSDNet
