@@ -122,7 +122,7 @@ if __name__ == '__main__':
                 lam = np.random.beta(alpha, alpha)
                 lam = torch.tensor(lam, requires_grad=False)
                 index = torch.randperm(len(labels))
-                samples = lam*samples + (1-lam)*samples[index, :]
+                # samples = lam*samples + (1-lam)*samples[index, :]
                 labels_b = labels[index]
                 loss = lam * F.cross_entropy(preds, labels) + (1 - lam) * F.cross_entropy(preds, labels_b)
             else:
