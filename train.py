@@ -74,8 +74,8 @@ if __name__ == '__main__':
     if data_type == 'CQT':
         Net = models.SSDNet2D()  # 2D-Res-TSSDNet
     else:
-        Net = models.SSDNet1D()   # Res-TSSDNet
-        # Net = models.DilatedNet()  # Inc-TSSDNet
+        # Net = models.SSDNet1D()   # Res-TSSDNet
+        Net = models.DilatedNet()  # Inc-TSSDNet
     Net = Net.to(device)
 
     num_total_learnable_params = sum(i.numel() for i in Net.parameters() if i.requires_grad)
@@ -112,7 +112,6 @@ if __name__ == '__main__':
             samples, labels, _ = batch
             samples = samples.to(device)
             labels = labels.to(device)
-            preds = Net(samples)
 
             optimizer.zero_grad()
 
@@ -122,10 +121,12 @@ if __name__ == '__main__':
                 lam = np.random.beta(alpha, alpha)
                 lam = torch.tensor(lam, requires_grad=False)
                 index = torch.randperm(len(labels))
-                # samples = lam*samples + (1-lam)*samples[index, :]
+                samples = lam*samples + (1-lam)*samples[index, :]
+                preds = Net(samples)
                 labels_b = labels[index]
                 loss = lam * F.cross_entropy(preds, labels) + (1 - lam) * F.cross_entropy(preds, labels_b)
             else:
+                preds = Net(samples)
                 loss = F.cross_entropy(preds, labels, weight=weights)
                 # loss = F.cross_entropy(preds, labels)
 

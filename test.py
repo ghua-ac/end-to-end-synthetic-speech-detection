@@ -12,7 +12,7 @@ def asv_cal_accuracies(protocol, path_data, net, device, data_type='time_frame',
     with torch.no_grad():
         softmax_acc = 0
         num_files = 0
-        probs = torch.empty(0, 3)
+        probs = torch.empty(0, 3).to(device)
 
         if dataset == 15:
             test_set = PrepASV15Dataset(protocol, path_data, data_type=data_type)
@@ -36,8 +36,8 @@ def asv_cal_accuracies(protocol, path_data, net, device, data_type='time_frame',
 
             num_files += len(test_label)
             test_sample = test_sample.to(device)
+            test_label = test_label.to(device)
             infer = net(test_sample)
-            infer = infer.to('cpu')
 
             # obtain output probabilities
             t1 = F.softmax(infer, dim=1)
@@ -52,7 +52,7 @@ def asv_cal_accuracies(protocol, path_data, net, device, data_type='time_frame',
 
         softmax_acc = softmax_acc / num_files
 
-    return softmax_acc, probs
+    return softmax_acc, probs.to('cpu')
 
 
 def cal_roc_eer(probs, show_plot=True):
