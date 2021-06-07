@@ -74,8 +74,8 @@ if __name__ == '__main__':
     if data_type == 'CQT':
         Net = models.SSDNet2D()  # 2D-Res-TSSDNet
     else:
-        # Net = models.SSDNet1D()   # Res-TSSDNet
-        Net = models.DilatedNet()  # Inc-TSSDNet
+        Net = models.SSDNet1D()   # Res-TSSDNet
+        # Net = models.DilatedNet()  # Inc-TSSDNet
     Net = Net.to(device)
 
     num_total_learnable_params = sum(i.numel() for i in Net.parameters() if i.requires_grad)
@@ -87,6 +87,7 @@ if __name__ == '__main__':
 
     # TODO: Training
     print('Training data: {}, Date type: {}. Training started...'.format(train_data_path, data_type))
+
     num_epoch = 100
     loss_per_epoch = torch.zeros(num_epoch,)
     best_d_eer = [.09, 0]
