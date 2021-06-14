@@ -19,7 +19,7 @@ We present two light-weight neural network models, termed time-domain synthetic 
 The two models with 1.64% and 4.04% eval EER, and their train logs, are provided in folder pretrained.
  <img src="https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/raw/main/imgs/2.png" width="600">
 
-Fixing all hyperparameters, the distribution of the lowest dev EERs among 100 epochs, trained from scratch:
+Fixing all hyperparameters, the distribution of the lowest dev (and the corresponding eval) EERs among 100 epochs, trained from scratch:
 <img src="https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/raw/main/imgs/3.png" width="600">
 
 ## Usage
