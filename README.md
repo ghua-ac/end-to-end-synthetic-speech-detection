@@ -1,4 +1,4 @@
-# Ed-to-End Synthetic Speech Detection
+# End-to-End Synthetic Speech Detection
 
 ## About
 We present two light-weight neural network models, termed time-domain synthetic speech detection net (TSSDNet), having the classic ResNet and Inception Net style structures (Res-TSSDNet and Inc-TSSDNet), for end-to-end synthetic speech detection. They achieve the state-of-the-art performance in terms of equal error rate (EER) on ASVspoof 2019 challenge and are also shown to have promising generalization capability when tested on ASVspoof 2015. 
