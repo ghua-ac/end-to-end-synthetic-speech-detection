@@ -1,1 +1,3 @@
-# End-to-End-Synthetic-Speech-Detection
+# End-to-End Synthetic Speech Detection
+
+![Model Architecture](/imgs/1.png)
