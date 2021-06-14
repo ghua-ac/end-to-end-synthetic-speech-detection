@@ -11,7 +11,7 @@ This program generates
     1) equal-duration time domain raw waveforms
     2) 2D log power of constant Q transform 
 from ASVspoof2019 and ASVspoof2015 official datasets, respectively. 
-This program is supposed to he run independently for data preparation.
+This program is supposed to be run independently for data preparation.
 
 Official dataset download link: https://www.asvspoof.org/database
 
