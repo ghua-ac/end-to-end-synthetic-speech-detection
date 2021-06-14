@@ -8,7 +8,7 @@ We present two light-weight neural network models, termed time-domain synthetic 
 - ASVspoof 2015. [link](https://datashare.ed.ac.uk/handle/10283/853)
   
 1. ASVspoof 2019 train set is used for training;
-2. ASVspoof 2019 del set is used for model selection;
+2. ASVspoof 2019 dev set is used for model selection;
 3. ASVspoof 2019 eval set is used for testing;
 4. ASVspoof 2015 eval set is used for cross-dataset testing.
 
