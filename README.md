@@ -3,7 +3,7 @@
 ## About
 We present two light-weight neural network models, termed time-domain synthetic speech detection net (TSSDNet), having the classic ResNet and Inception Net style structures (Res-TSSDNet and Inc-TSSDNet), for end-to-end synthetic speech detection. They achieve the state-of-the-art performance in terms of equal error rate (EER) on ASVspoof 2019 challenge and are also shown to have promising generalization capability when tested on ASVspoof 2015. 
 
-##Dataset
+## Dataset
 - ASVspoof 2019 LA partition. [link](https://datashare.ed.ac.uk/handle/10283/3336)
 - ASVspoof 2015. [link](https://datashare.ed.ac.uk/handle/10283/853)
   
@@ -13,14 +13,18 @@ We present two light-weight neural network models, termed time-domain synthetic 
 4. ASVspoof 2015 eval set is used for cross-dataset testing.
 
 ## Model Architecture
-![](imgs/1.png)
+<img src="https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/raw/main/imgs/1.png" width="600">
 
 ## Main Results
-The two models with 1.64% and 4.04% eval EER, and their train logs, are provided in folder pretrained.
+> The two models with 1.64% and 4.04% eval EER, and their train logs, are provided in folder pretrained.
+ <br/><br/>
+ <img src="https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/raw/main/imgs/2.png" width="600">
 
-![](imgs/2.png)
+<br/><br/>
 
-![](imgs/3.png)
+> Fixing all hyperparameters, the distribution of the lowest dev EERs among 100 epochs, trained from scratch, are shown below.
+<br/><br/>
+<img src="https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/raw/main/imgs/3.png" width="600">
 
 ## Usage
 ### Data Preparation 
