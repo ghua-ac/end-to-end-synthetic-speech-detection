@@ -16,6 +16,8 @@ We present two light-weight neural network models, termed time-domain synthetic 
 ![](imgs/1.png)
 
 ## Main Results
+The two models with 1.64% and 4.04% eval EER, and their train logs, are provided in folder pretrained.
+
 ![](imgs/2.png)
 
 ![](imgs/3.png)
