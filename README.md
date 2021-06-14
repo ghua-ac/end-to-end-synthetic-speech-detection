@@ -13,16 +13,16 @@ We present two light-weight neural network models, termed time-domain synthetic 
 4. ASVspoof 2015 eval set is used for cross-dataset testing.
 
 ## Model Architecture
-<img src="https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/raw/main/imgs/1.png" width="600">
+<img src="https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/raw/main/imgs/1.png" width="400">
 
 ## Main Results
 The two models with 1.64% and 4.04% eval EER (below), and their train logs, are provided in folder pretrained.
 
- <img src="https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/raw/main/imgs/2.png" width="600">
+ <img src="https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/raw/main/imgs/2.png" width="400">
 
 Fixing all hyperparameters, the distribution of the lowest dev (and the corresponding eval) EERs among 100 epochs, trained from scratch (below):
 
-<img src="https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/raw/main/imgs/3.png" width="600">
+<img src="https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/raw/main/imgs/3.png" width="400">
 
 ## Usage
 ### Data Preparation 
