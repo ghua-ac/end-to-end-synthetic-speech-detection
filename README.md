@@ -54,4 +54,4 @@ test.py
 It generates softmax accuracy, ROC curve, and EER.
 
 ## Citation Information
-G. Hua, A. Teoh, and H. Zhang, “Towards end-to-end synthetic speech detection,” IEEE Signal Processing Letters, vol. 28, pp. 1265–1269, 2021. [arXiv](https://arxiv.org/abs/2106.06341) | [IEEE Xplore](https://ieeexplore.ieee.org/document/9456037)
+G. Hua, A. B. J. Teoh, and H. Zhang, “Towards end-to-end synthetic speech detection,” IEEE Signal Processing Letters, vol. 28, pp. 1265–1269, 2021. [arXiv](https://arxiv.org/abs/2106.06341) | [IEEE Xplore](https://ieeexplore.ieee.org/document/9456037)
