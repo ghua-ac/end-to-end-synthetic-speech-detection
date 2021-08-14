@@ -33,7 +33,7 @@ It generates
 1) equal-duration time domain raw waveform
 2) 2D log power of constant Q transform
 
-from ASVspoof2019 and ASVspoof2015 official datasets, respectively. The calculation of CQT is adopted from [Li et al. ICASSP 2021](https://github.com/ghuawhu/ASV-anti-spoofing-with-Res2Net).
+from ASVspoof2019 and ASVspoof2015 official datasets, respectively. The calculation of CQT is adopted from [Li et al. ICASSP 2021](https://github.com/lixucuhk/ASV-anti-spoofing-with-Res2Net).
 
 ### Training 
 ```
