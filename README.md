@@ -2,12 +2,12 @@
 
 ---
 # Important Notice (Oct. 2021)!
-The results reported in our paper [link](https://ieeexplore.ieee.org/document/9456037) were based on Window system, while we recently found that the execution of the same repo and dataset on Linux yielded different results, using the pretrained models [link](https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/tree/main/pretrained):
+The results reported in our [paper](https://ieeexplore.ieee.org/document/9456037) were based on Window system, while we recently found that the execution of the same repo and dataset on Linux yielded different results, using the pretrained [models](https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/tree/main/pretrained):
 
  - Res-TSSDNet ASVspoof2019 eval EER: 1.6590%;
  - Inc-TSSDNet ASVspoof2019 eval EER: 4.0384%.
 
-We have identified issues of the package *soundfile* when writing and reading flac files, as also been pointed out here [link](https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/issues/2). We are working to 
+We have identified issues of the package *soundfile* when writing and reading flac files, as also been pointed out [here](https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/issues/2).
 ---
 
 ## About
