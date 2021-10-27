@@ -7,7 +7,7 @@
 - **Res-TSSDNet ASVspoof2019 eval EER: 1.6590%;**
 - **Inc-TSSDNet ASVspoof2019 eval EER: 4.0384%.**
 
-We have identified issues of the package *soundfile* when writing and reading flac files, as also been pointed out [here](https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/issues/2).
+**We have identified issues of the package *soundfile* when writing and reading flac files, as also been pointed out [here](https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/issues/2).**
 ---
 
 
