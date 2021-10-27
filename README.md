@@ -2,11 +2,14 @@
 
 ---
 # Important Notice (Oct. 2021)
-The results reported in our [paper](https://ieeexplore.ieee.org/document/9456037) were based on Window system, while we recently found that the execution of the same repo and dataset on Linux yielded different results, using the pretrained [models](https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/tree/main/pretrained):
- - Res-TSSDNet ASVspoof2019 eval EER: 1.6590%;
- - Inc-TSSDNet ASVspoof2019 eval EER: 4.0384%.
+**The results reported in our [paper](https://ieeexplore.ieee.org/document/9456037) were based on Window system, while we recently found that the execution of the same repo and dataset on Linux yielded different results, using the pretrained [models](https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/tree/main/pretrained):**
+
+- **Res-TSSDNet ASVspoof2019 eval EER: 1.6590%;**
+- **Inc-TSSDNet ASVspoof2019 eval EER: 4.0384%.**
+
 We have identified issues of the package *soundfile* when writing and reading flac files, as also been pointed out [here](https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/issues/2).
 ---
+
 
 ## About
 We present two light-weight neural network models, termed time-domain synthetic speech detection net (TSSDNet), having the classic ResNet and Inception Net style structures (Res-TSSDNet and Inc-TSSDNet), for end-to-end synthetic speech detection. They achieve the state-of-the-art performance in terms of equal error rate (EER) on ASVspoof 2019 challenge and are also shown to have promising generalization capability when tested on ASVspoof 2015. 
