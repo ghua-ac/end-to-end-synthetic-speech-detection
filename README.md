@@ -6,7 +6,7 @@
 - **Res-TSSDNet ASVspoof2019 eval EER: 1.6590%;**
 - **Inc-TSSDNet ASVspoof2019 eval EER: 4.0384%.**
 
-**We have identified issues of the package *soundfile* when writing and reading flac files, as also been pointed out [here](https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/issues/2).**
+**We have identified issues of the package *soundfile* on Windows when writing and reading flac files, but this problem does not exist on Linux for the same package. The similar problem has been pointed out [here](https://github.com/ghuawhu/end-to-end-synthetic-speech-detection/issues/2).**
 
 ## About
 We present two light-weight neural network models, termed time-domain synthetic speech detection net (TSSDNet), having the classic ResNet and Inception Net style structures (Res-TSSDNet and Inc-TSSDNet), for end-to-end synthetic speech detection. They achieve the state-of-the-art performance in terms of equal error rate (EER) on ASVspoof 2019 challenge and are also shown to have promising generalization capability when tested on ASVspoof 2015. 
